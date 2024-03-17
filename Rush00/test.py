@@ -27,3 +27,9 @@ with open(os.path.join(rush_dir, "ft_putchar.h"), "w") as header_:
     header_.write("void ft_putchar(char c);")
 with open(os.path.join(rush_dir, (rush_filename[:-1]+'h')), "w") as header_:
     header_.write("void rush(int x, int y);")
+
+include_string = '#include "{}";\n #include "ft_putchar.h";'.format(rush_filename[:-1] + 'h')
+with open(os.path.join(rush_dir, "main.c"), "r+") as c_main:
+    content = c_main.read()
+    c_main.seek(0, 0)
+    c_main.write(include_string.rstrip('\r\n') + '\n' + content)
