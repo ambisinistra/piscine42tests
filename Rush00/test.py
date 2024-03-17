@@ -33,3 +33,5 @@ try:
 except subprocess.CalledProcessError as e:
     print("Compilation failed:", e)
 
+#print (subprocess.check_output('norminette "../../ex00"', shell=True))
+print (subprocess.check_output("./my_program", shell=True))
