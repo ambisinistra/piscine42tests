@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 rush_dir = "../../ex00"
 
@@ -23,13 +24,12 @@ elif len(files_we_have) == len(files_to_check):
 else:
     print ("ERROR: number of files is wrong!")
 
-with open(os.path.join(rush_dir, "ft_putchar.h"), "w") as header_:
-    header_.write("void ft_putchar(char c);")
-with open(os.path.join(rush_dir, (rush_filename[:-1]+'h')), "w") as header_:
-    header_.write("void rush(int x, int y);")
+source_paths = [os.path.join(rush_dir,  file_) for file_ in files_we_have]
+gcc_command = ["gcc", "-Wall", "-Wextra", "-Werror", "-o", "my_program"] + source_paths
 
-include_string = '#include <unistd.h>;\n#include "{}";\n #include "ft_putchar.h";'.format(rush_filename[:-1] + 'h')
-with open(os.path.join(rush_dir, "main.c"), "r+") as c_main:
-    content = c_main.read()
-    c_main.seek(0, 0)
-    c_main.write(include_string.rstrip('\r\n') + '\n' + content)
+try:
+    subprocess.run(gcc_command, check=True)
+    print("Compilation successful")
+except subprocess.CalledProcessError as e:
+    print("Compilation failed:", e)
+
