@@ -2,11 +2,11 @@ import os
 import subprocess
 
 def compile_with_testcode(root, dirname, filename, sourcedir):
-    if True:
+    try:
         with open(f"{dirname} {filename[:-1]+'h'}", "r") as f:
             head_ = f.read()
-    #except:
-    #    head_ = ""
+    except:
+        head_ = ""
     with open(f"{dirname} {filename}", "r") as f:
         tail_ = f.read()
     
@@ -33,9 +33,9 @@ def compile_with_testcode(root, dirname, filename, sourcedir):
 
     return output_
 
-exercises = ["ex0" + str(i) for i in range(5)]
+exercises = ["ex0" + str(i) for i in range(6)]
 filenames = ["ft_ft.c", "ft_ultimate_ft.c", "ft_swap.c", "ft_div_mod.c",
-             "ft_ultimate_div_mod.c"]
+             "ft_ultimate_div_mod.c", "ft_putstr.c"]
 
 for exer_, file_ in zip(exercises, filenames):
     print (compile_with_testcode("../..", exer_, file_, "source_files"))
