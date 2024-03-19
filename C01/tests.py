@@ -33,8 +33,8 @@ def compile_with_testcode(root, dirname, filename, sourcedir):
 
     return output_
 
-exercises = ["ex0" + str(i) for i in range(3)]
-filenames = ["ft_ft.c", "ft_ultimate_ft.c", "ft_swap.c"]
+exercises = ["ex0" + str(i) for i in range(4)]
+filenames = ["ft_ft.c", "ft_ultimate_ft.c", "ft_swap.c", "ft_div_mod.c"]
 
 for exer_, file_ in zip(exercises, filenames):
     print (compile_with_testcode("../..", exer_, file_, "source_files"))
