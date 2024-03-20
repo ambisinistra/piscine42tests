@@ -1,9 +1,9 @@
 int main(void)
 {
 	char	str_1[] = "";
-	char	str_2[] = "aoe";
-	char	str_3[] = "AoEE";
-	char	str_4[] = "AoE1";
+	char	str_2[] = "AoE";
+	char	str_3[] = "Aoe@";
+	char	str_4[] = "AoeE11";
 	
 	printf ("%s %d || ", str_1, ft_str_is_alpha(str_1));
 	printf ("%s %d || ", str_2, ft_str_is_alpha(str_2));
