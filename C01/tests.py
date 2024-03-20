@@ -2,6 +2,11 @@ import os
 import subprocess
 
 def compile_with_testcode(root, dirname, filename, sourcedir):
+    source_file_in = os.path.join(root, dirname, filename)
+    if not os.exists(source_file_in):
+        print (f"{filename} not found")
+        return
+
     try:
         with open(f"{dirname} {filename[:-1]+'h'}", "r") as f:
             head_ = f.read()
@@ -10,7 +15,6 @@ def compile_with_testcode(root, dirname, filename, sourcedir):
     with open(f"{dirname} {filename}", "r") as f:
         tail_ = f.read()
     
-    source_file_in = os.path.join(root, dirname, filename)
     with open(source_file_in, 'r+') as f_in:
         content = f_in.read()
         #f_in.seek(0,0)
