@@ -3,7 +3,7 @@ import subprocess
 
 def compile_with_testcode(root, dirname, filename, sourcedir):
     source_file_in = os.path.join(root, dirname, filename)
-    if not os.exists(source_file_in):
+    if not os.path.exists(source_file_in):
         print (f"{filename} not found")
         return
 
