@@ -1,8 +1,10 @@
 int main(void)
 {
-  for (char i=0; i++; i<256)
+  char str[2] = "  ";
+  for (int i=0; i < 255; i++)
   {
-    printf ("%c%d ", &i, ft_is_printable(i));
+	  str[0] = (char)i;
+	  printf ("%s%d ", str, ft_str_is_printable(str));
   }
   printf ("\n");
   return (0);
