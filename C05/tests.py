@@ -23,8 +23,8 @@ def compile_with_testcode(root, dirname, filename, sourcedir):
         with open(source_file_out, "w") as f_out:
             f_out.write(head_.rstrip('\r\n') + '\n' + content + '\n' + tail_)
 
-    #  "-Wall", "-Wextra", "-Werror",
-    gcc_command = ["gcc", "-o", "my_program", source_file_out]
+
+    gcc_command = ["gcc", "-Wall", "-Wextra", "-Werror", "-o", "my_program", source_file_out]
     try:
         subprocess.run(gcc_command, check=True)
         print(f"{filename} compilation successful")
@@ -33,9 +33,7 @@ def compile_with_testcode(root, dirname, filename, sourcedir):
         
     output_ = subprocess.check_output("./my_program", shell=True)
 
-    return output_.decode("utf-8")
-
-
+    return output_.decode("utf-8")from .utils import compile_with_testcode
 
 exercises = ["ex0" + str(i) for i in range(8)]
 filenames = ["ft_iterative_factorial.c", "ft_recursive_factorial.c", "ft_iterative_power.c",
