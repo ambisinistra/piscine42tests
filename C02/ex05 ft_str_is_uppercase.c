@@ -6,5 +6,6 @@ int main(void)
   {
     printf ("%s %d || ", test_cases[i], ft_str_is_uppercase(test_cases[i]));
   }
+  printf("\n");
   return (0);
 }

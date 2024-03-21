@@ -5,6 +5,7 @@ int	main(void)
   for (int i=0; i < size_; i++)
   {
 	  printf("%s %d ||", test_cases[i], ft_str_is_lowercase(test_cases[i]));
-  }	 
+  }
+  printf ("\n");
   return (0);
 }

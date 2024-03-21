@@ -33,7 +33,7 @@ def compile_with_testcode(root, dirname, filename, sourcedir):
         
     output_ = subprocess.check_output("./my_program", shell=True)
 
-    return output_.decode("utf-8")
+    return output_.decode("ascii")
 
 exercises = ["ex" + str(i//10) + str(i%10) for i in range(13)]
 filenames = ["ft_strcpy.c", "ft_strncpy.c", "ft_str_is_alpha.c", "ft_str_is_numeric.c",
