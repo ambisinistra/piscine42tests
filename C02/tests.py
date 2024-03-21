@@ -35,8 +35,11 @@ def compile_with_testcode(root, dirname, filename, sourcedir):
 
     return output_.decode("utf-8")
 
-exercises = ["ex0" + str(i) for i in range(3)]
-filenames = ["ft_strcpy.c", "ft_strncpy.c", "ft_str_is_alpha.c"]
+exercises = ["ex" + str(i//10) + str(i%10) for i in range(13)]
+filenames = ["ft_strcpy.c", "ft_strncpy.c", "ft_str_is_alpha.c", "ft_str_is_numeric.c",
+             "ft_str_is_lowercase.c", "ft_is_uppercase.c", "ft_is_printable.c",
+             "ft_strupcase.c", "ft_strlowcase.c", "ft_strcapitalize.c", "ft_strlcpy.c"
+             "ft_putstr_non_printable.c", "ft_print_memory.c"]
 
 for exer_, file_ in zip(exercises, filenames):
     print (compile_with_testcode("../..", exer_, file_, "source_files"))
