@@ -6,7 +6,7 @@ int main(void)
 
   for(int i=0; i < size_; i++)
   {
-    printf ("%d %d | %d", test_cases[i], test_answers[i], ft_is_prime(test_cases[i]));
+    printf ("%d %d | %d\n", test_cases[i], test_answers[i], ft_is_prime(test_cases[i]));
   }
   return (0);
 }
