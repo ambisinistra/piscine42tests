@@ -8,7 +8,7 @@ int main(void)
 	{
 		printf ("%s %s %d %d\n", test_dest[i], test_src[i],
 				strcmp(test_dest[i], test_src[i]),
-				ft_strcpm(test_dest[i], test_src[i]));
+				ft_strcmp(test_dest[i], test_src[i]));
 	}
 	return (0);
 }
