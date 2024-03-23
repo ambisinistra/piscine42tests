@@ -1,9 +1,9 @@
 int main(void)
 {
 	int size_ = 4;
-	int test_length[] = {7, 3, 7, 2};
+	int test_length[] = {8, 8, 8, 2};
 	char test_dest[][50] = {"QWERTY", "QWERT", "QWERTa", "QWERTY"};
-	char test_src[][50] = {"QWERTY", "QWERTY", "QWERTY", "QWERT0"};
+	char test_src[][50] = {"QWERT", "QWERT0", "QWERTY", "QWERT0"};
 	
 	for (int i=0; i < size_; i++)
 	{
