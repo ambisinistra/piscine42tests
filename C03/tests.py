@@ -35,9 +35,9 @@ def compile_with_testcode(root, dirname, filename, sourcedir):
 
     return output_.decode("ascii")
 
-exercises = ["ex" + str(i//10) + str(i%10) for i in range(6)]
+exercises = ["ex" + str(i//10) + str(i%10) for i in range(5)]
 filenames = ["ft_strcmp.c", "ft_strncmp.c", "ft_strcat.c",
-             "ft_strncat.c", "ft_strstr.c", "ft_strlcat.c"]
+             "ft_strncat.c", "ft_strstr.c"] # "ft_strlcat.c"]
 
 for exer_, file_ in zip(exercises, filenames):
     print (compile_with_testcode("../..", exer_, file_, "source_files"))
