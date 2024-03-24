@@ -13,7 +13,6 @@ void find_intersections(int *inter, char *hor, char *ver, int y, int x)
 		j = 0;
         while (hor[j])
         {
-		  printf ("j %d %d\n", j % 5, x);
           if (j % 5 == x)
           {
 			if (ver[i] == hor[j] && ver[i] >= '1' && ver[i] <= '4')
@@ -23,7 +22,6 @@ void find_intersections(int *inter, char *hor, char *ver, int y, int x)
           }
 		  j++;
         }
-		printf ("\n");
       }
       i++;
    }
@@ -58,6 +56,12 @@ void print_inter(int *inter)
 	}
 }
 
+void print_strings(char **posib)
+{
+	  for (int i = 0; i < 8; i++)
+	  printf ("%s\n", posib[i]);
+}
+
 void remove_hor_str(int *inter, char *hor, int y, int x)
 {
 	int i = 0;
@@ -89,16 +93,13 @@ void remove_ver_str(int *inter, char *ver, int y, int x)
 
 	while (ver[i])
 	{
-		printf ("i %d\n", i);
 		if (i % 5 == y && ver[i] != ' ')
-		{
-			
+		{		
 			if (inter[y*16 + x*4 +((int)ver[i] - 49)] == 0)
 			{
 				j = i - y;
 				while (j < (i - y + 5))
 				{
-					printf ("j %d\n", j);
 					ver[j] = ' ';
 					j++;
 				}
@@ -145,7 +146,7 @@ char	*cpy_str(char *dst, char *src)
 	return (dst);
 }
 
-char	**init_strings(char **str, int nb, int l, int r)
+char	**init_str(char **str, int nb, int l, int r)
 {
 	if (l == 4 && r == 1)
 		str[nb] = cpy_str(str[nb], "1234 ");
@@ -168,26 +169,58 @@ char	**init_strings(char **str, int nb, int l, int r)
 	return (str);
 }
 
+void	read_args(char *nums, char **posib)
+{
+	int	i;
+	int num1;
+	int num2;
+
+	i = 0;
+	while (i < 8)
+	{
+		init_str(posib, i / 2, (int)nums[i] - 48, (int)nums[i + 8] - 48);
+		i += 2;
+	}
+	i += 8;
+	while (i < 24)
+	{
+		init_str(posib, (i-8) / 2, (int)nums[i] - 48, (int)nums[i + 8] - 48);
+		i += 2;
+	}
+}
+
+void	check_all_intersections(int *inter, char **posib, int y, int x)
+{
+	while (y < 4)
+	{
+		x = 0;
+		while (x < 4)
+		{
+			find_intersections(inter, posib[4 + y], posib[x], y, x);
+			remove_hor_str(inter, posib[4 + y], y, x);
+			remove_ver_str(inter, posib[x], y, x);
+			printf ("%d %d\n", y, x);
+			printf ("\n");
+			print_strings(posib);
+			printf ("\n");
+			print_inter(inter);
+			printf ("\n");
+			x++;
+		}
+		y++;
+	}
+}
+
 int main(int argc, char **argv)
 {
   int *inter;
   char **posib;
   
   inter = allocate_inter(inter, 64);
-  posib = allocate_strings(posib, 30);
-
-  char hor[] = "1243 1342 2341";
-  char ver[] = "1423 2143 2413 3142 3241 3412";
-  int y = 1;
-  int x = 2;
+  posib = allocate_strings(posib, 32);
   
-  find_intersections(inter, hor, ver, y, x);
-  printf ("\n");
-  print_inter(inter);
-  printf ("\n");
-  remove_ver_str(inter, ver, y, x);
-  remove_hor_str(inter, hor, y, x);
-  printf ("%s\n", hor);
-  printf ("%s\n", ver);
-  free(inter);
+  char input_str[] = "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2";
+  read_args(input_str, posib);
+
+  check_all_intersections(inter, posib, 0, 0);
 }
