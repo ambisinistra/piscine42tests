@@ -155,7 +155,7 @@ char	**init_str(char **str, int nb, int l, int r)
 	if (l == 3 && r == 1)
 		str[nb] = cpy_str(str[nb], "1324 2134 2314 ");
 	if (l == 2 && r == 2)
-		str[nb] = cpy_str(str[nb], "1423 2143 2413 3142 3241 4312 ");
+		str[nb] = cpy_str(str[nb], "1423 2143 2413 3142 3241 3412 ");
 	if (l == 2 && r == 3)
 		str[nb] = cpy_str(str[nb], "1432 2431 3421 ");
 	if (l == 2 && r == 1)
