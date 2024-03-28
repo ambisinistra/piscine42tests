@@ -3,7 +3,7 @@ int main(void)
   int size_ = 7;
   int test_cases[7] = {0, 1, 2, 3, -1, 10, 1};
   int test_powers[7] = {0, 1, 2, 3, 2, 5,  -1};
-  int test_answers[7] = {0, 1, 4, 27, 1, 100000, 0};
+  int test_answers[7] = {1, 1, 4, 27, 1, 100000, 0};
 
   for (int i=0; i < size_; i++)
   {

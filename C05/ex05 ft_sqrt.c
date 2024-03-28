@@ -1,8 +1,8 @@
 int main(void)
 {
-  int size_ = 6;
-  int test_cases[6] = {1, 3, 4, 7, 9, 16};
-  int test_answers[6] = {1, 0, 2, 0, 3, 4};
+  int size_ = 7;
+  int test_cases[7] = {-5, 1, 3, 4, 7, 9, 16};
+  int test_answers[7] = {0, 1, 0, 2, 0, 3, 4};
 
   for (int i=0; i < size_;  i++)
   {
