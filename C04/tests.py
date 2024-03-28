@@ -33,11 +33,11 @@ def compile_with_testcode(root, dirname, filename, sourcedir):
         
     output_ = subprocess.check_output("./my_program", shell=True)
 
-    return output_.decode("utf-8")from .utils import compile_with_testcode
+    return output_.decode("utf-8")
 
 exercises = ["ex0" + str(i) for i in range(6)]
-filenames = ["ex00 ft_strlen.c", "ex01 ft_putstr.c", "ex02 ft_putnbr.c",
-             "ex03 ft_atoi.c", "ex04 ft_putnbr_base.c", "ex05 ft_atoi_base.c"]
+filenames = ["ft_strlen.c", "ft_putstr.c", "ft_putnbr.c",
+             "ft_atoi.c", "ft_putnbr_base.c", "ft_atoi_base.c"]
 
 for exer_, file_ in zip(exercises, filenames):
     print (compile_with_testcode("../..", exer_, file_, "source_files"))

@@ -6,7 +6,7 @@ int main(void)
 	for (int i=0; i < size_; i++)
 	{
 		ft_putstr(tests_cases[i]);
-		wirte(1, &"\n", 1);
+		write(1, &"\n", 1);
 	}
 	return (0);
 }

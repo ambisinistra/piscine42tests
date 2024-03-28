@@ -5,7 +5,7 @@ int main(void)
 
 	for (int i=0; i < size_; i++)
 	{
-		printf ("%s %d\n", test_cases[i], ft_strlen(test_cases[i]);
+		printf ("%s %d\n", test_cases[i], ft_strlen(test_cases[i]));
 	}
 	return (0);
 }
