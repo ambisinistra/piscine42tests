@@ -33,7 +33,7 @@ def compile_with_testcode(root, dirname, filename, sourcedir):
         
     output_ = subprocess.check_output("./my_program", shell=True)
 
-    return output_.decode("utf-8")from .utils import compile_with_testcode
+    return output_.decode("utf-8")
 
 exercises = ["ex0" + str(i) for i in range(8)]
 filenames = ["ft_iterative_factorial.c", "ft_recursive_factorial.c", "ft_iterative_power.c",
